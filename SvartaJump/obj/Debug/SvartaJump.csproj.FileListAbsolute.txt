@@ -9,3 +9,7 @@ C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\SvartaJump.pdb
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\obj\Debug\SvartaJump.exe
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\obj\Debug\SvartaJump.pdb
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\svarta.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\tree.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background2.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\block.png

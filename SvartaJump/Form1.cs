@@ -77,9 +77,18 @@ namespace SvartaJump
         {
             if (game_started)
             {
+                Bitmap background = new Bitmap("background.png");
+                e.Graphics.DrawImage(background, 0, 0, window_width, window_height);
+                Bitmap block = new Bitmap("block.png");
+                e.Graphics.DrawImage(block, 300, 400, block.Width/5, block.Height/5);
+                
+                e.Graphics.DrawRectangle(new Pen(Brushes.Red, 5), new Rectangle(300, 400, block.Width/5, block.Height/5));
+                
+                //Bitmap s = new Bitmap("svarta.png");
+                //e.Graphics.DrawImage(s, 0, 0, s.Width / 2, s.Height / 2);
                 //e.Graphics.FillRectangle(Brushes.BlueViolet, player.X, player.Y, 50, 50);
-                Bitmap img = new Bitmap("svarta.png");
-                e.Graphics.DrawImage(img, player.X, player.Y, img.Width/2, img.Height/2);
+                Bitmap svarta = new Bitmap("svarta.png");
+                e.Graphics.DrawImage(svarta, player.X, player.Y, svarta.Width/2, svarta.Height/2);
             }
             
         }
