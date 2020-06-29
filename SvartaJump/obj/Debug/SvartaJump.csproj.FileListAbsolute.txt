@@ -1,0 +1,11 @@
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\obj\Debug\SvartaJump.csprojAssemblyReference.cache
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\obj\Debug\SvartaJump.Form1.resources
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\obj\Debug\SvartaJump.Properties.Resources.resources
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\obj\Debug\SvartaJump.csproj.GenerateResource.cache
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\obj\Debug\SvartaJump.csproj.CoreCompileInputs.cache
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\SvartaJump.exe.config
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\SvartaJump.exe
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\SvartaJump.pdb
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\obj\Debug\SvartaJump.exe
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\obj\Debug\SvartaJump.pdb
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\svarta.png
