@@ -21,7 +21,7 @@ namespace SvartaJump
         private bool game_started = false;
         private bool left = false;
         private bool right = false;
-        int last_fallen = 0;
+        //int last_fallen = 0;
         int direction = 1;
         int time_now = 0;
 
@@ -57,14 +57,12 @@ namespace SvartaJump
 
             player.Speed = (int)(GRAVITY * time_now*time_now/20);
 
-            //this.Text = player.Speed.ToString();
             player.Y += player.Speed*direction;
             if(player.Y > window_height-160)
             {
                 player.Y = window_height-160;
                 direction = -1;
             }
-            //player.Y += player.Speed;
             Invalidate();
             time_now += direction;
             if(player.Speed <= 0)
@@ -95,6 +93,7 @@ namespace SvartaJump
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
+            this.Text = "stisknuto";
             if(e.KeyCode == Keys.Left)
             {
                 left = true;
@@ -107,6 +106,7 @@ namespace SvartaJump
 
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
+            this.Text = "NEEEEstisknuto";
             if (e.KeyCode == Keys.Left)
             {
                 left = false;

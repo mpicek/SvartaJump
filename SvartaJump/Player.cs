@@ -11,9 +11,6 @@ namespace SvartaJump
         private int window_width;
         private int window_height;
 
-        private int width = 50;
-        private int height = 50;
-
         private int speed = 0;
         public Player(int _window_width, int _window_height)
         {
@@ -28,7 +25,7 @@ namespace SvartaJump
                 return x; 
             }
             set {
-                if(value + width < window_width && value >= 0)
+                if(value + 50 < window_width && value >= 0)
                 {
                     x = value;
                 }
