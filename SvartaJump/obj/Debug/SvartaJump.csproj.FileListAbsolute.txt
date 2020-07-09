@@ -13,3 +13,8 @@ C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background.png
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\tree.png
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background2.png
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\block.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\backgroud3.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background4.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background5.jpg
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background5.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\rsz_background5.png
