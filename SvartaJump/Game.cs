@@ -11,13 +11,14 @@ namespace SvartaJump
     class Game
     {
         private float GRAVITY = 0.05F;
-        private int WINDOW_HEIGHT = 900;
-        private int WINDOW_WIDTH = 600;
-        private int SCALE_PLAYER = 2;
+        private int WINDOW_HEIGHT;
+        private int WINDOW_WIDTH;
+        private int SCALE_PLAYER = 3;
         private int SCALE_BLOCK = 7;
         public int score = 0;
         private List<MoveableObject> moveable_objects = new List<MoveableObject>();
         private Player svarta;
+        private Bitmap background;
 
         public enum GameSate
         {
@@ -29,9 +30,12 @@ namespace SvartaJump
 
         public GameSate state = GameSate.NotStarted;
 
-        public Game()
+        public Game(int window_height, int window_width)
         {
+            WINDOW_HEIGHT = window_height;
+            WINDOW_WIDTH = window_width;
             state = GameSate.NotStarted;
+            background = new Bitmap("rsz_background5.png");
             svarta = new Player("svarta.png", 600, 900, SCALE_PLAYER, 100, 400);
             moveable_objects.Add(new Block("block.png", 600, 900, SCALE_BLOCK, 0, 100, 100));
             moveable_objects.Add(new Block("block.png", 600, 900, SCALE_BLOCK, 0, 100, 350));
@@ -43,7 +47,7 @@ namespace SvartaJump
 
         public void draw(PaintEventArgs e)
         {
-            Bitmap background = new Bitmap("rsz_background5.png");
+            
             e.Graphics.DrawImage(background, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
 
             svarta.draw(e);
@@ -91,7 +95,9 @@ namespace SvartaJump
             
             if(svarta.dead == true)
             {
+                HighscoreHandler.add_high_score(score);
                 state = GameSate.End;
+
             }
         }
 

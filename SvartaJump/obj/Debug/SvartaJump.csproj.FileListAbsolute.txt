@@ -18,3 +18,5 @@ C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background4.png
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background5.jpg
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background5.png
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\rsz_background5.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\end_background.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\start_background.png

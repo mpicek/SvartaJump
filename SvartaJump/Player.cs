@@ -13,8 +13,8 @@ namespace SvartaJump
     {
         private int speed = 0;
         private int time_from_last_jump = 0;
-        private int jump_time = 33;
-        private Direction direction_of_move = Direction.Up; // 1 = up, 0 = down
+        private int jump_time = 30;
+        private Direction direction_of_move = Direction.Up;
         private int last_x;
         private int last_y;
         private int MAX_HEIGHT_OF_PLAYER = 300;
@@ -53,10 +53,14 @@ namespace SvartaJump
                 return x; 
             }
             set {
-                if(value + WIDTH < WINDOW_WIDTH && value >= 0)
+                if (value + WIDTH <= WINDOW_WIDTH && value >= 0)
                 {
                     x = value;
                 }
+                else if (value + WIDTH > WINDOW_WIDTH)
+                    x = WINDOW_WIDTH - WIDTH;
+                else if (value < 0)
+                    x = 0;
             }
         }
         public int Y { get => y; set => y = value; }
@@ -69,16 +73,12 @@ namespace SvartaJump
 
         public override void move(bool left_pressed, bool right_pressed, float gravity, List<MoveableObject> all_objects)
         {
-            //direction of move :
-                //  1 ... down
-                // -1 ... up
             bool collided = false;
             last_x = x;
             last_y = y;
             if (left_pressed) this.X -= X_CHANGE_PER_TICK;
             if (right_pressed) this.X += X_CHANGE_PER_TICK;
 
-            //TODO: death 
             if(y + HEIGHT > WINDOW_HEIGHT)
             {
                 dead = true;
@@ -101,12 +101,6 @@ namespace SvartaJump
 
             }
 
-            if (direction_of_move == Direction.Up)
-            {
-                score += this.Speed;
-            }
-
-            //if falling:
             if (direction_of_move == Direction.Down)
             {
                 collided = collision_with_block(all_objects);
@@ -119,7 +113,8 @@ namespace SvartaJump
             // moving all objects down
             if(this.y < MAX_HEIGHT_OF_PLAYER && direction_of_move == Direction.Up)
             {
-                foreach(MoveableObject m in all_objects)
+                score += this.Speed;
+                foreach (MoveableObject m in all_objects)
                 {
                     if(m.GetType() != typeof(Player))
                     {
@@ -132,7 +127,6 @@ namespace SvartaJump
 
             }
             
-            
             if (collided)
             {
                 direction_of_move = Direction.Up;
@@ -142,8 +136,6 @@ namespace SvartaJump
                 time_from_last_jump++;
             if (direction_of_move == Direction.Up)
                 time_from_last_jump--;
-
-
         }
 
         private bool collision_with_block(List<MoveableObject> all_objects)
