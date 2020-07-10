@@ -10,7 +10,7 @@ namespace SvartaJump
 {
     class Block : MoveableObject
     {
-        public Block(string img_name, int _window_width, int _window_height, int _scale_img, int _x_change_per_tick, int _x, int _y)
+        public Block(string img_name, int _window_width, int _window_height, int _scale_img, int _x_change_per_tick, int _x, int _y, int _collision_energy)
         {
             //constructor with static x, y set manually
             img = new Bitmap(img_name);
@@ -23,9 +23,13 @@ namespace SvartaJump
 
             x = _x;
             y = _y;
+
+            collision_energy = _collision_energy;
+            block_mode = Game.GameMode.Normal;
         }
 
-        public Block(string img_name, int _window_width, int _window_height, int _scale_img, int _x_change_per_tick, int score){
+        public Block(string img_name, int _window_width, int _window_height, int _scale_img, int score, int _collision_energy, Game.GameMode game_mode)
+        {
             img = new Bitmap(img_name);
             scale_img = _scale_img;
             WINDOW_WIDTH = _window_width;
@@ -34,18 +38,34 @@ namespace SvartaJump
             HEIGHT = img.Height / scale_img;
 
             Random r = new Random();
-            y = r.Next(-300, -100); // negative so that it is invisible (above screen)
+            y = r.Next(-150, -100); // negative so that it is invisible (above screen)
             x = r.Next(0, WINDOW_WIDTH - WIDTH);
 
-            if(score < 5000)
+            if (score < 5000)
             {
                 X_CHANGE_PER_TICK = 0;
             }
             else
             {
-                X_CHANGE_PER_TICK = r.Next(-score/2000, score/2000);
+                X_CHANGE_PER_TICK = r.Next(-score / 2000, score / 2000);
+            }
+
+            switch (game_mode)
+            {
+                case Game.GameMode.Normal:
+                    break;
+                case Game.GameMode.Fast_blocks:
+                    X_CHANGE_PER_TICK = r.Next(score / 2000, score / 800);
+                    break;
+                case Game.GameMode.Little_blocks:
+                    WIDTH = img.Width*2 / (scale_img*3);
+                    HEIGHT = img.Height*2 / (scale_img*3);
+                    break;
             }
             
+
+            collision_energy = _collision_energy;
+            block_mode = game_mode;
 
         }
 
@@ -77,8 +97,13 @@ namespace SvartaJump
 
         public override void draw(PaintEventArgs e)
         {
-            e.Graphics.DrawImage(img, x, y, img.Width / scale_img, img.Height / scale_img);
-            e.Graphics.DrawRectangle(new Pen(Brushes.Red, 5), new Rectangle(x, y, img.Width / scale_img, img.Height / scale_img));
+            e.Graphics.DrawImage(img, x, y, WIDTH, HEIGHT);
+            e.Graphics.DrawRectangle(new Pen(Brushes.Red, 5), new Rectangle(x, y, WIDTH, HEIGHT));
+        }
+
+        public override int energy_on_collision()
+        {
+            return collision_energy;
         }
     }
 }

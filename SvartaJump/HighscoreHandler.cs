@@ -29,7 +29,7 @@ namespace SvartaJump
             }
             else
             {
-                File.Create(HIGHSCORE_FILE);
+                File.Create(HIGHSCORE_FILE).Close();
             }
 
             return highscores;

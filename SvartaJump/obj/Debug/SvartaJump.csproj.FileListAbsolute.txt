@@ -20,3 +20,12 @@ C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background5.png
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\rsz_background5.png
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\end_background.png
 C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\start_background.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\trampoline.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\small_trampoline.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background_fast.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background_little.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\fast_block.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\small_block.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\background_normal.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\monster1.png
+C:\Users\42060\source\repos\SvartaJump\SvartaJump\bin\Debug\Monster.cs

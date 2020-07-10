@@ -18,9 +18,15 @@ namespace SvartaJump
         public int y { get; set;  }
         protected int X_CHANGE_PER_TICK;
         protected int scale_img;
+        protected int collision_energy;
+        public Game.GameMode block_mode;
+
 
         public Bitmap img;
         public abstract void move(bool left_pressed, bool right_pressed, float gravity, List<MoveableObject> all_objects);
         public abstract void draw(PaintEventArgs e);
+
+        public abstract int energy_on_collision();
+
     }
 }

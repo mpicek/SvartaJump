@@ -9,17 +9,26 @@ using System.Windows.Forms;
 
 namespace SvartaJump
 {
-    internal class Player : MoveableObject
+    internal class Player
     {
-        private int speed = 0;
-        private int time_from_last_jump = 0;
+        public int speed = 0;
+        public int time_from_last_jump = 0;
         private int jump_time = 30;
         private Direction direction_of_move = Direction.Up;
         private int last_x;
         private int last_y;
-        private int MAX_HEIGHT_OF_PLAYER = 300;
+        private int MAX_HEIGHT_OF_PLAYER = 400;
         public int score = 0;
         public bool dead = false;
+        public Bitmap img;
+        protected int X_CHANGE_PER_TICK;
+        protected int scale_img;
+        protected int WINDOW_WIDTH;
+        protected int WINDOW_HEIGHT;
+        public int WIDTH { get; set; }
+        public int HEIGHT { get; set; }
+        public int x { get; set; }
+        public int y { get; set; }
 
         public Player(string img_name, int _window_width, int _window_height, int _scale_img, int _x, int _y)
         {
@@ -29,7 +38,7 @@ namespace SvartaJump
             WINDOW_HEIGHT = _window_height;
             WIDTH = img.Width/scale_img;
             HEIGHT = img.Height/scale_img;
-            X_CHANGE_PER_TICK = 30;
+            X_CHANGE_PER_TICK = 20;
             x = _x;
             y = _y;
             last_x = _x;
@@ -42,7 +51,7 @@ namespace SvartaJump
             Up = -1
         }
 
-        public override void draw(PaintEventArgs e)
+        public void draw(PaintEventArgs e)
         {
             e.Graphics.DrawImage(img, x, y, img.Width / scale_img, img.Height / scale_img);
         }
@@ -71,9 +80,9 @@ namespace SvartaJump
             }
         }
 
-        public override void move(bool left_pressed, bool right_pressed, float gravity, List<MoveableObject> all_objects)
+        public void move(bool left_pressed, bool right_pressed, float gravity, List<MoveableObject> all_objects)
         {
-            bool collided = false;
+            int collided = 0;
             last_x = x;
             last_y = y;
             if (left_pressed) this.X -= X_CHANGE_PER_TICK;
@@ -101,13 +110,21 @@ namespace SvartaJump
 
             }
 
+            collided = collision_with_monster(all_objects);
+            if (collided < 0)
+            {
+                dead = true;
+                return;
+            }
+
             if (direction_of_move == Direction.Down)
             {
                 collided = collision_with_block(all_objects);
+                
             }
             else
             {
-                collided = false;
+                collided = 0;
             }
 
             // moving all objects down
@@ -127,10 +144,10 @@ namespace SvartaJump
 
             }
             
-            if (collided)
+            if (collided > 0)
             {
                 direction_of_move = Direction.Up;
-                time_from_last_jump = jump_time;
+                time_from_last_jump = collided;
             }
             if(direction_of_move == Direction.Down)
                 time_from_last_jump++;
@@ -138,8 +155,26 @@ namespace SvartaJump
                 time_from_last_jump--;
         }
 
-        private bool collision_with_block(List<MoveableObject> all_objects)
+        private int collision_with_monster(List<MoveableObject> all_objects)
         {
+            foreach (MoveableObject m in all_objects)
+            {
+                if (m.GetType() == typeof(Monster))
+                {
+                    if (player_overlaps_with_monster(this.x, this.y, m))
+                    {
+                        return m.energy_on_collision();
+                    }
+                }
+            }
+
+            return 0;
+        }
+        private int collision_with_block(List<MoveableObject> all_objects)
+        {
+            //returns 0 when no collision
+            //returns energy of collision otherwise
+
             foreach (MoveableObject m in all_objects)
             {
                 if (m.GetType() == typeof(Block))
@@ -149,11 +184,12 @@ namespace SvartaJump
                         player_overlaps_with_moveable_object(this.x, this.y, m) &&
                         last_y + this.HEIGHT < m.y)
                     {
-                        return true;
+                        return m.energy_on_collision();
                     }
                 }
+                
             }
-            return false;
+            return 0;
         }
 
         private bool player_overlaps_with_moveable_object(int player_x, int player_y, MoveableObject m)
@@ -170,6 +206,24 @@ namespace SvartaJump
                 return false;
             }
                 
+
+            return true;
+        }
+
+        private bool player_overlaps_with_monster(int player_x, int player_y, MoveableObject m)
+        {
+            //one rectangle is on the right one on the left - they don't overlap
+            if (player_x + this.WIDTH < m.x || m.x + m.WIDTH < player_x)
+            {
+                return false;
+            }
+
+            //one rectangle is above the other one
+            if (player_y + this.HEIGHT < m.y || m.y + m.HEIGHT < player_y)
+            {
+                return false;
+            }
+
 
             return true;
         }
