@@ -11,24 +11,34 @@ namespace SvartaJump
 {
     internal class Player
     {
-        public int speed = 0;
-        public int time_from_last_jump = 0;
-        private int jump_time = 30;
-        private Direction direction_of_move = Direction.Up;
-        private int last_x;
-        private int last_y;
-        private int MAX_HEIGHT_OF_PLAYER = 400;
-        public int score = 0;
-        public bool dead = false;
-        public Bitmap img;
-        protected int X_CHANGE_PER_TICK;
-        protected int scale_img;
         protected int WINDOW_WIDTH;
         protected int WINDOW_HEIGHT;
-        public int WIDTH { get; set; }
-        public int HEIGHT { get; set; }
-        public int x { get; set; }
-        public int y { get; set; }
+
+        public int WIDTH;
+        public int HEIGHT;
+        public int x;
+        public int y;
+        public int speed = 0;
+        public int time_from_last_jump = 0;
+        private int last_x;
+        private int last_y;
+        protected int X_CHANGE_PER_TICK;
+
+        //when player reaches this height, he stops and everything around moves
+        private int MAX_HEIGHT_OF_PLAYER = 400;
+
+        public int score = 0;
+        public bool dead = false;
+
+        public Bitmap img;
+        protected int scale_img;
+        
+        private Direction direction_of_move = Direction.Up;
+        private enum Direction
+        {
+            Down = 1,
+            Up = -1
+        }
 
         public Player(string img_name, int _window_width, int _window_height, int _scale_img, int _x, int _y)
         {
@@ -45,15 +55,9 @@ namespace SvartaJump
             last_y = _y;
         }
 
-        private enum Direction
-        {
-            Down = 1,
-            Up = -1
-        }
-
         public void draw(PaintEventArgs e)
         {
-            e.Graphics.DrawImage(img, x, y, img.Width / scale_img, img.Height / scale_img);
+            e.Graphics.DrawImage(img, x, y, WIDTH, HEIGHT);
         }
 
         public int X { 
@@ -82,6 +86,7 @@ namespace SvartaJump
 
         public void move(bool left_pressed, bool right_pressed, float gravity, List<MoveableObject> all_objects)
         {
+            /* moves player, checks for collisions, moves all objects down if needed */
             int collided = 0;
             last_x = x;
             last_y = y;
@@ -107,7 +112,6 @@ namespace SvartaJump
                     this.Y -= this.Speed;
                 else
                     this.Y += this.Speed;
-
             }
 
             collided = collision_with_monster(all_objects);
@@ -120,7 +124,6 @@ namespace SvartaJump
             if (direction_of_move == Direction.Down)
             {
                 collided = collision_with_block(all_objects);
-                
             }
             else
             {
@@ -138,10 +141,8 @@ namespace SvartaJump
                         //all move down (always - look at the first condition)
                         m.y += this.Speed;
 
-                    }
-                        
+                    }                      
                 }
-
             }
             
             if (collided > 0)
@@ -167,7 +168,6 @@ namespace SvartaJump
                     }
                 }
             }
-
             return 0;
         }
         private int collision_with_block(List<MoveableObject> all_objects)
@@ -206,7 +206,6 @@ namespace SvartaJump
                 return false;
             }
                 
-
             return true;
         }
 

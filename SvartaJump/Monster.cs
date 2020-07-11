@@ -20,12 +20,12 @@ namespace SvartaJump
             HEIGHT = img.Height / scale_img;
 
             Random r = new Random();
+
             y = r.Next(-300, -200); // negative so that it is invisible (above screen)
             x = r.Next(0, WINDOW_WIDTH - WIDTH);
+            X_CHANGE_PER_TICK = 0; //we don't want the monster to move - it would be too hard
 
-            X_CHANGE_PER_TICK = 0;
-
-            collision_energy = -1;
+            collision_energy = -1; // means death
         }
 
         public override void draw(PaintEventArgs e)

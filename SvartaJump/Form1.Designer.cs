@@ -29,95 +29,133 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.button1 = new System.Windows.Forms.Button();
+            this.playButton = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.scoreLabel = new System.Windows.Forms.Label();
+            this.highScoresList = new System.Windows.Forms.Label();
+            this.scoreAfterDeath = new System.Windows.Forms.Label();
+            this.playAgainButton = new System.Windows.Forms.Button();
+            this.warningLabel = new System.Windows.Forms.Label();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.pauseButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // playButton
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Desktop;
-            this.button1.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button1.Location = new System.Drawing.Point(169, 243);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(261, 110);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "HRAJ!";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.playButton.BackColor = System.Drawing.SystemColors.Desktop;
+            this.playButton.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.playButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.playButton.Location = new System.Drawing.Point(169, 243);
+            this.playButton.Name = "playButton";
+            this.playButton.Size = new System.Drawing.Size(261, 110);
+            this.playButton.TabIndex = 0;
+            this.playButton.Text = "HRAJ!";
+            this.playButton.UseVisualStyleBackColor = false;
+            this.playButton.Click += new System.EventHandler(this.playButton_Click);
             // 
             // timer1
             // 
             this.timer1.Interval = 30;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // label1
+            // scoreLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label1.Location = new System.Drawing.Point(472, 781);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(86, 31);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.scoreLabel.AutoSize = true;
+            this.scoreLabel.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.scoreLabel.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.scoreLabel.Location = new System.Drawing.Point(472, 781);
+            this.scoreLabel.Name = "scoreLabel";
+            this.scoreLabel.Size = new System.Drawing.Size(93, 38);
+            this.scoreLabel.TabIndex = 1;
+            this.scoreLabel.Text = "label1";
             // 
-            // label2
+            // highScoresList
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(162, 482);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 38);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "label2";
+            this.highScoresList.AutoSize = true;
+            this.highScoresList.Font = new System.Drawing.Font("Comic Sans MS", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.highScoresList.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.highScoresList.Location = new System.Drawing.Point(162, 482);
+            this.highScoresList.Name = "highScoresList";
+            this.highScoresList.Size = new System.Drawing.Size(92, 38);
+            this.highScoresList.TabIndex = 2;
+            this.highScoresList.Text = "label2";
             // 
-            // label3
+            // scoreAfterDeath
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(97, 399);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 67);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "label3";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.scoreAfterDeath.AutoSize = true;
+            this.scoreAfterDeath.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.scoreAfterDeath.Location = new System.Drawing.Point(97, 399);
+            this.scoreAfterDeath.Name = "scoreAfterDeath";
+            this.scoreAfterDeath.Size = new System.Drawing.Size(166, 67);
+            this.scoreAfterDeath.TabIndex = 3;
+            this.scoreAfterDeath.Text = "label3";
+            this.scoreAfterDeath.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // playAgainButton
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Desktop;
-            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button2.Location = new System.Drawing.Point(121, 663);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(368, 115);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "HRAJ!";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.playAgainButton.BackColor = System.Drawing.SystemColors.Desktop;
+            this.playAgainButton.Font = new System.Drawing.Font("Comic Sans MS", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.playAgainButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.playAgainButton.Location = new System.Drawing.Point(121, 651);
+            this.playAgainButton.Name = "playAgainButton";
+            this.playAgainButton.Size = new System.Drawing.Size(368, 115);
+            this.playAgainButton.TabIndex = 4;
+            this.playAgainButton.Text = "ZNOVA!";
+            this.playAgainButton.UseVisualStyleBackColor = false;
+            this.playAgainButton.Click += new System.EventHandler(this.playAgainButton_Click);
+            // 
+            // warningLabel
+            // 
+            this.warningLabel.AutoSize = true;
+            this.warningLabel.Font = new System.Drawing.Font("Comic Sans MS", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warningLabel.Location = new System.Drawing.Point(98, 603);
+            this.warningLabel.Name = "warningLabel";
+            this.warningLabel.Size = new System.Drawing.Size(413, 135);
+            this.warningLabel.TabIndex = 5;
+            this.warningLabel.Text = "POZOR!";
+            // 
+            // exitButton
+            // 
+            this.exitButton.Font = new System.Drawing.Font("Comic Sans MS", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.exitButton.Location = new System.Drawing.Point(216, 781);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(163, 60);
+            this.exitButton.TabIndex = 6;
+            this.exitButton.Text = "Exit";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // pauseButton
+            // 
+            this.pauseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.pauseButton.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.pauseButton.Location = new System.Drawing.Point(38, 820);
+            this.pauseButton.Name = "pauseButton";
+            this.pauseButton.Size = new System.Drawing.Size(91, 34);
+            this.pauseButton.TabIndex = 7;
+            this.pauseButton.Text = "PAUSE";
+            this.pauseButton.UseVisualStyleBackColor = true;
+            this.pauseButton.Click += new System.EventHandler(this.pauseButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(599, 881);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pauseButton);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.warningLabel);
+            this.Controls.Add(this.playAgainButton);
+            this.Controls.Add(this.scoreAfterDeath);
+            this.Controls.Add(this.highScoresList);
+            this.Controls.Add(this.scoreLabel);
+            this.Controls.Add(this.playButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
@@ -128,12 +166,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button playButton;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label scoreLabel;
+        private System.Windows.Forms.Label highScoresList;
+        private System.Windows.Forms.Label scoreAfterDeath;
+        private System.Windows.Forms.Button playAgainButton;
+        private System.Windows.Forms.Label warningLabel;
+        private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Button pauseButton;
     }
 }
 

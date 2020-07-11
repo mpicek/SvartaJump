@@ -14,6 +14,8 @@ namespace SvartaJump
         static string HIGHSCORE_FILE = "highscore.txt";
         static public List<int> read_high_scores()
         {
+            /* returns list of highscores */
+
             List<int> highscores = new List<int>();
             if (File.Exists(HIGHSCORE_FILE))
             {
@@ -37,6 +39,7 @@ namespace SvartaJump
 
         static public string return_high_scores()
         {
+            /* returns printable string of highscores */
             List<int> highscores = read_high_scores();
             string highscore_string = "";
             int i = 1;
@@ -53,6 +56,8 @@ namespace SvartaJump
 
         static public void add_high_score(int new_score)
         {
+            /* adds highscore to the list if the new score is in top 10 */
+
             List<int> highscores = read_high_scores();
 
             highscores.Add(new_score);
@@ -71,17 +76,8 @@ namespace SvartaJump
             using (FileStream file = File.Create(HIGHSCORE_FILE))
             {
                 byte[] data = new UTF8Encoding(true).GetBytes(numbers_to_file);
-                // Add some information to the file.
                 file.Write(data, 0, data.Length);
             }
-        }
-
-        static public bool is_new_high_score(int score)
-        {
-            List<int> highscores = read_high_scores();
-            if (score > highscores[0])
-                return true;
-            return false;
         }
     }
 }
