@@ -27,12 +27,12 @@ namespace SvartaJump
         private Bitmap background_normal_mode;
         private Bitmap background_fast_mode;
         private Bitmap background_little_mode;
-        private string svarta_img_name = "svarta.png";
-        private string block_img_name = "block.png";
-        private string monster_img_name = "monster1.png";
-        private string trampoline_img_name = "trampoline.png";
-        private string small_trampolinea_img_name = "small_trampoline.png";
-        private string small_block_img_name = "small_block.png";
+        private string svarta_img_name = "Graphics/svarta.png";
+        private string block_img_name = "Graphics/block.png";
+        private string monster_img_name = "Graphics/monster1.png";
+        private string trampoline_img_name = "Graphics/trampoline.png";
+        private string small_trampolinea_img_name = "Graphics/small_trampoline.png";
+        private string small_block_img_name = "Graphics/small_block.png";
 
 
         // PROBABILITY: X/1000
@@ -72,9 +72,9 @@ namespace SvartaJump
             WINDOW_HEIGHT = window_height;
             WINDOW_WIDTH = window_width;
 
-            background_normal_mode = new Bitmap("background_normal.png");
-            background_little_mode = new Bitmap("background_little.png");
-            background_fast_mode = new Bitmap("background_fast.png");
+            background_normal_mode = new Bitmap("Graphics/background_normal.png");
+            background_little_mode = new Bitmap("Graphics/background_little.png");
+            background_fast_mode = new Bitmap("Graphics/background_fast.png");
 
             state = GameSate.NotStarted;
             init_objects();

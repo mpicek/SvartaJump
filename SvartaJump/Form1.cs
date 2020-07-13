@@ -68,8 +68,8 @@ namespace SvartaJump
         {
             game = new Game(WINDOW_HEIGHT, WINDOW_WIDTH);
 
-            start_background = new Bitmap("start_background.png");
-            end_background = new Bitmap("end_background.png");
+            start_background = new Bitmap("Graphics/start_background.png");
+            end_background = new Bitmap("Graphics/end_background.png");
 
             InitializeComponent();
 
